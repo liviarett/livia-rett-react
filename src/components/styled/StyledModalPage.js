@@ -25,6 +25,32 @@ const StyledModalPage = styled.section`
     right: 2%;
     color: ${style.colors.closeModalIcon};
   }
+
+  .content-wrapper {
+    margin-top: 1em;
+    overflow: scroll;
+    height: 90%;
+
+    p {
+      margin-bottom: 1em;
+      padding: 0 10%;
+      line-height: 1.5;
+    }
+  }
+
 `;
 
+export const StyledImageRow = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  margin: 1em 0;
+
+  img {
+    object-fit: contain;
+    height: ${props => props.numberOfImages === 6 ? '85%' : 'auto'};
+    width: ${props => props.numberOfImages < 6 ? Math.floor(100 / props.numberOfImages) + '%' : 'auto'};
+  }
+`;
 export default StyledModalPage;

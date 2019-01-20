@@ -34,9 +34,9 @@ const renderMenuItems = (sections) => sections.map(section =>
   </li>
 );
 
-const SideNav = ({ toggleSideNav, isClosing, openModal }) => (
-  <StyledNav className={isClosing ? 'side-nav-leave' : ''}>
-      <StyledSideNavToggle isClosing={isClosing} type="far fa-times-circle" largeIcon handleClick={toggleSideNav} />
+const SideNav = ({ hideSideNav, isClosing, openModal }) => (
+  <StyledNav className={`${isClosing ? 'side-nav-leave ' : ''}side-nav`}>
+      <StyledSideNavToggle isClosing={isClosing} type="far fa-times-circle" largeIcon handleClick={hideSideNav} />
       <nav>
         <ul>
           {renderMenuItems(sections)}

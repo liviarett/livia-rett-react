@@ -3,6 +3,7 @@ import { StyledIcon } from '../styled/StyledIcons';
 import { StyledFirstPage } from '../styled/StyledPages';
 import SocialMediaIcons from '../SocialMediaIcons';
 import SlideDownButton from '../SlideDownButton';
+import style from '../../style';
 
 const languages = ['react', 'js', 'html5', 'css3-alt', 'less', 'git', 'npm'];
 class FirstPage extends Component {
@@ -10,9 +11,18 @@ class FirstPage extends Component {
     super(props);
     this.state = {
       hoveredElement: '',
+      delayed: false,
     }
 
     this.toggleHover = this.toggleHover.bind(this);
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        delayed: true,
+      })
+    }, 5000)
   }
 
   toggleHover(element) {
@@ -21,9 +31,9 @@ class FirstPage extends Component {
     })
   }
   render() {
-    const { openModal, getReference } = this.props;
+    const { openModal } = this.props;
     return (
-      <StyledFirstPage backgroundImage="Underground.jpg" >
+      <StyledFirstPage backgroundImage="underground.jpg" >
         <div className="overlay">
           <div>
             <h1>LIVIA RETT</h1>
@@ -31,9 +41,12 @@ class FirstPage extends Component {
           </div>
           <div>
             {languages.map(language =>
-              <div className="icon-wrapper language-wrapper" onMouseEnter={() => this.toggleHover(language)} onMouseLeave={() => this.toggleHover('')}>
-              <StyledIcon
+              <div
                 key={language}
+                className="icon-wrapper language-wrapper"
+                onMouseEnter={() => this.toggleHover(language)}
+                onMouseLeave={() => this.toggleHover('')}>
+              <StyledIcon
                 className={`language-icon${this.state.hoveredElement === language ? ' animated flipInY hover' : ''}`}
                 languageItem
                 type={`fab fa-${language}`}
@@ -44,7 +57,7 @@ class FirstPage extends Component {
           <SocialMediaIcons openModal={openModal} />
           <div>
             <div className="find-out-more">FIND OUT MORE</div>
-            <SlideDownButton className="animated infinite pulse" handleClick={() => {
+            <SlideDownButton className={`${this.state.delayed ? 'animated ' : ''}infinite ${style.effects.slideDownIcon}`} handleClick={() => {
               // SCROLL TO NEXT PAGE
             }} />
           </div>

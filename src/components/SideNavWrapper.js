@@ -3,9 +3,17 @@ import SideNav from './SideNav';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
 import { FixedIcon } from './styled/StyledIcons';
 
-const SideNavWrapper = ({ isOpen, isClosing, isOpening, isModalOpen, toggleSideNav, openModal }) =>
+const SideNavWrapper = ({
+  isOpen,
+  isClosing,
+  isOpening,
+  isModalOpen,
+  showSideNav,
+  hideSideNav,
+  openModal
+}) =>
   <Fragment>
-    {!isModalOpen && <FixedIcon isOpen={isOpen} isOpening={isOpening} type={'fas fa-bars'} largeIcon handleClick={toggleSideNav} />}
+    {!isModalOpen && <FixedIcon isOpen={isOpen} isOpening={isOpening} type={'fas fa-bars'} largeIcon handleClick={showSideNav} />}
       {isOpen &&
       <ReactCSSTransitionGroup
         transitionName="side-nav"
@@ -15,7 +23,7 @@ const SideNavWrapper = ({ isOpen, isClosing, isOpening, isModalOpen, toggleSideN
         transitionLeaveTimeout={5000}
         transitionLeave={true}
       >
-        <SideNav openModal={openModal} toggleSideNav={toggleSideNav} isClosing={isClosing} />
+        <SideNav openModal={openModal} hideSideNav={hideSideNav} isClosing={isClosing} />
       </ReactCSSTransitionGroup>}
   </Fragment>;
 

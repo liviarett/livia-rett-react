@@ -2,33 +2,35 @@ import React, { Component } from 'react';
 import SideNavWrapper from './components/SideNavWrapper';
 import ModalPage from './components/ModalPage';
 import FirstPage from './components/pages/FirstPage';
+import WebDevelopmentPage from './components/pages/WebDevelopmentPage';
+import DesignPage from './components/pages/DesignPage';
 import BackgroundPage from './components/pages/BackgroundPage';
+import Footer from './components/Footer';
 import {
   showSideNav,
   hideSideNav,
-  toggleSideNav,
   toggleModal,
+  isSideNavChild,
 } from './helpers';
 class App extends Component {
   constructor() {
     super();
     this.state = {
       sideNav: {
-        isOpen: true,
+        isOpen: false,
       },
       modal: {
         isOpen: false,
         content: '',
       }
     }
-    this.toggleSideNav = toggleSideNav(this);
     this.showSideNav = showSideNav(this);
     this.hideSideNav = hideSideNav(this);
     this.toggleModal = toggleModal(this);
   }
 
   componentDidMount() {
-    document.addEventListener("keydown", (e) => {
+    document.addEventListener('keydown', (e) => {
       if (e.keyCode === 27) {
         if (this.state.modal.isOpen) {
           this.toggleModal();
@@ -37,6 +39,14 @@ class App extends Component {
         }
       }
     });
+
+    document.addEventListener('click', (e) => {
+      if (this.state.sideNav.isOpen) {
+        if (!isSideNavChild(e.target)) {
+          this.hideSideNav();
+        }
+      }
+    })
   }
 
   render() {
@@ -47,10 +57,32 @@ class App extends Component {
           {...this.state.sideNav}
           isModalOpen={this.state.modal.isOpen}
           openModal={this.toggleModal}
-          toggleSideNav={this.toggleSideNav} />
+          hideSideNav={this.hideSideNav}
+          showSideNav={this.showSideNav}
+        />
         <FirstPage openModal={this.toggleModal} />
-        <BackgroundPage />
-        {this.state.modal.isOpen ? <ModalPage {...this.state.modal} closeModal={this.toggleModal}/> : null}
+        <BackgroundPage
+        firstHalf={{
+          background: 'underground',
+          shadow: true,
+        }}
+        secondHalf={{
+          background: 'lady',
+        }}
+        />
+        <WebDevelopmentPage openModal={this.toggleModal} />
+        <BackgroundPage
+        firstHalf={{
+          background: 'lady',
+        }}
+        secondHalf={{
+          background: 'unicorns',
+          shadow: true,
+        }}
+        />
+        <DesignPage openModal={this.toggleModal} />
+        <Footer />
+        <ModalPage {...this.state.modal} closeModal={this.toggleModal} />
       </div>
     );
   }

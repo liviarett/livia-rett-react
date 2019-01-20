@@ -3,6 +3,7 @@ export default {
     body: 'rgb(90, 78, 111)',
     overlay: 'rgba(255, 255, 255, .9)',
     modalOverlay: 'rgba(0, 0, 0, .5)',
+    lightOverlay: 'rgba(210, 210, 210, .4)',
     closeModalIcon: 'rgb(255, 255, 255)',
     sideNavText: 'rgb(150, 150, 150)',
 
@@ -28,5 +29,38 @@ export default {
 
   sizes: {
     sideNavWidth: '20vw'
+  },
+
+  effects: {
+    slideDownIcon: 'bounce',
+  },
+
+  shadows: {
+    veryLight: '0 1px 1px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1)',
+    light: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
+  },
+
+  backgrounds: {
+    underground: {
+      name: 'underground.jpg',
+      size: '20%',
+      repeat: 'repeat',
+      attachment: 'fixed',
+      position: 'top',
+    },
+    lady: {
+      name: 'negra.jpg',
+      size: 'cover',
+      repeat: 'no-repeat',
+      attachment: 'fixed',
+      position: 'right',
+    },
+    unicorns: {
+      name: 'unicorns2.jpg',
+      size: 'cover',
+      repeat: 'no-repeat',
+      attachment: 'fixed',
+      position: 'right',
+    }
   }
 }

@@ -11,6 +11,8 @@ export const StyledNav = styled.section`
   background-color: #fff;
   box-shadow: -1px 1px 1px rgba(100, 100, 100, 0.2);
   padding: 2.5em 1.5em;
+  z-index: 9999;
+  text-transform: uppercase;
 
   * {
     color: ${style.colors.sideNavText};

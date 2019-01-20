@@ -28,19 +28,11 @@ export const hideSideNav = (component) => () => {
     component.setState({
       sideNav: {
         ...component.state.sideNav,
-        isOpen: !component.state.sideNav.isOpen,
+        isOpen: false,
         isClosing: false,
       }
     })
   }, 500);
-}
-
-export const toggleSideNav = (component) => () => {
-  if (component.state.sideNav.isOpen) {
-    component.hideSideNav()
-  } else {
-    component.showSideNav();
-  }
 }
 
 export const toggleModal = (component) => (content) => {
@@ -51,4 +43,15 @@ export const toggleModal = (component) => (content) => {
       content
     }
   })
+}
+
+export const isSideNavChild = (element) => {
+  if (element.classList.contains('side-nav')) {
+    return true;
+  }
+
+  if (element.tagName !== 'BODY') {
+    isSideNavChild(element.parentNode);
+  }
+  return false;
 }
