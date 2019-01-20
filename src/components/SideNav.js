@@ -1,27 +1,27 @@
 import React from 'react';
 import Icon from './Icon';
-import { StyledNav, StyledIcon } from './styled/StyledSideNav';
-import SocialMediaIcon from './SocialMediaIcon';
+import { StyledNav } from './styled/StyledSideNav';
+import { StyledSideNavToggle } from './styled/StyledIcons';
+import SocialMediaIcons from './SocialMediaIcons';
 
-const socialMedias = ['Linkedin', 'Facebook', 'Github', 'Email'];
 const sections = [
   {
     className: 'home-li',
-    iconType: 'fa-home',
+    iconType: 'fa fa-home',
     title: 'Home'
   }
   ,
   {
     className: 'web-li',
-    iconType: 'fa-code',
+    iconType: 'fa fa-code',
     title: 'Web Development Projects'
   }, {
     className: 'design-li',
-    iconType: 'fa-paint-brush',
+    iconType: 'fa fa-paint-brush',
     title: 'Design Projects'
   }, {
     className: 'get-in-touch',
-    iconType: 'fa-id-card-o',
+    iconType: 'far fa-id-card',
     title: 'Get in touch'
   }
 ];
@@ -34,13 +34,13 @@ const renderMenuItems = (sections) => sections.map(section =>
   </li>
 );
 
-const SideNav = ({ toggleSideNav, isClosing, isOpening }) => (
+const SideNav = ({ toggleSideNav, isClosing, openModal }) => (
   <StyledNav className={isClosing ? 'side-nav-leave' : ''}>
-      <StyledIcon isClosing={isClosing} type="fa-times-circle-o" largeIcon handleClick={toggleSideNav} />
+      <StyledSideNavToggle isClosing={isClosing} type="far fa-times-circle" largeIcon handleClick={toggleSideNav} />
       <nav>
         <ul>
           {renderMenuItems(sections)}
-          <li>{socialMedias.map(media => <SocialMediaIcon key={media} media={media} />)}</li>
+          <li className="social-media"><SocialMediaIcons openModal={openModal}/></li>
         </ul>
       </nav>
   </StyledNav>

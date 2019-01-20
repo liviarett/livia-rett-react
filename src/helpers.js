@@ -42,3 +42,13 @@ export const toggleSideNav = (component) => () => {
     component.showSideNav();
   }
 }
+
+export const toggleModal = (component) => (content) => {
+  component.setState({
+    modal: {
+      ...component.state.modal,
+      isOpen: !component.state.modal.isOpen,
+      content
+    }
+  })
+}
