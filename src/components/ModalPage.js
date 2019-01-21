@@ -17,7 +17,7 @@ const ModalPage = ({ content, closeModal, isOpen, }) => {
   const ContentName = mapOfContent[content];
   return (
     isOpen ?
-      <StyledModalPage>
+      <StyledModalPage className="animated fadeIn">
         <StyledIcon type="far fa-times-circle" className="close-modal" largeIcon handleClick={closeModal} />
         <div className="modal-content">
           <ContentName content={content}/>

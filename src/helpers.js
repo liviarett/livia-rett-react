@@ -36,13 +36,21 @@ export const hideSideNav = (component) => () => {
 }
 
 export const toggleModal = (component) => (content) => {
-  component.setState({
-    modal: {
-      ...component.state.modal,
-      isOpen: !component.state.modal.isOpen,
-      content
-    }
-  })
+  const isSideNavOpen = component.state.sideNav.isOpen;
+  const timeout = isSideNavOpen ? 500 : 0;
+  if (isSideNavOpen) {
+    component.hideSideNav();
+  }
+
+  setTimeout(() => {
+    component.setState({
+      modal: {
+        ...component.state.modal,
+        isOpen: !component.state.modal.isOpen,
+        content
+      }
+    })
+  }, timeout)
 }
 
 export const isSideNavChild = (element) => {
@@ -51,7 +59,30 @@ export const isSideNavChild = (element) => {
   }
 
   if (element.tagName !== 'BODY') {
-    isSideNavChild(element.parentNode);
+    return isSideNavChild(element.parentNode);
   }
   return false;
 }
+
+export const scrollIntoView = (element) => {
+  const pixelsToNavigate = window.pageYOffset - element.offsetTop;
+  const speed = Math.abs(pixelsToNavigate) > 2500 ? 100 : 50;
+  const stepInteger = Math.abs(pixelsToNavigate) > 2500 ? 10 : 5;
+  const step = pixelsToNavigate > 0 ? -stepInteger : stepInteger;
+
+  const canGoFurther = (step, current, target) => {
+    if (step > 0) {
+      return current + step < target;
+    }
+    return current + step > target;
+  }
+
+  const scrolling = setInterval(() => {
+    if (window.pageYOffset !== element.offsetTop) {
+      const offset = canGoFurther(step, window.pageYOffset, element.offsetTop) ? window.pageYOffset + step : element.offsetTop;
+      window.scrollTo(0, offset);
+    } else {
+      clearInterval(scrolling);
+    }
+  }, 100 / speed);
+};

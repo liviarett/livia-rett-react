@@ -1,6 +1,6 @@
 
 import styled from 'styled-components';
-import style from '../../style';
+import style from '../../config/style';
 
 
 export const StyledNav = styled.section`
@@ -77,20 +77,20 @@ export const StyledNav = styled.section`
   }
 
   &.side-nav-appear {
-    right: -${style.sizes.sideNavWidth};
     animation: slideIn 0.5s forwards;
   }
 
   &.side-nav-leave {
-    right: 0;
     animation: slideOut 0.5s forwards;
   }
 
   @keyframes slideIn {
+    0% { right: -${style.sizes.sideNavWidth};}
     100% { right: 0; }
   }
 
   @keyframes slideOut {
+    0% { right: 0; }
     100% { right: -${style.sizes.sideNavWidth}; }
   }
 `;

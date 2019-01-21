@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react';
-import styled from 'styled-components';
-import { StyledIcon } from '../styled/StyledIcons';
-import designProjects from '../../designProjects';
+import designProjects from '../../config/designProjects';
 import { StyledImageRow } from '../styled/StyledModalPage';
 
 const DesignPage = ({ content }) => {

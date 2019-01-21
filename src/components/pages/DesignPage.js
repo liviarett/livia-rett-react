@@ -2,19 +2,15 @@ import React, { Component } from 'react';
 import { StyledDesignPage } from '../styled/StyledPages';
 import DesignProject from '../DesignProject';
 
-class DesignPage extends Component {
-  render() {
-    return (
-      <StyledDesignPage>
-          <div>
-            <h1>DESIGN</h1>
-          </div>
-          <div className="content-wrapper">
-          <DesignProject openModal={this.props.openModal}/>
-          </div>
-      </StyledDesignPage>);
-  }
-}
-
+const DesignPage = ({ setRef, openModal }) => (
+  <StyledDesignPage id="design-page" ref={ref => setRef(ref, 'designPage')}>
+      <div>
+        <h1>DESIGN</h1>
+      </div>
+      <div className="content-wrapper">
+      <DesignProject openModal={openModal}/>
+      </div>
+  </StyledDesignPage>
+);
 
 export default DesignPage;

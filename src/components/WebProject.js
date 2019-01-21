@@ -5,7 +5,7 @@ const baseUrl = 'http://liviarett.com/';
 
 const WebProject = ({ miniUrl, url, description, title }) => (
   <StyledWebProject >
-    <iframe frameBorder="0" src={`${baseUrl}mini-projects/${miniUrl}`}>
+    <iframe frameBorder="0" title={title} src={`${baseUrl}mini-projects/${miniUrl}`}>
     </iframe>
     <div>
       <h2><a href={`${baseUrl}${url}`} target="_blank">{title}</a></h2>

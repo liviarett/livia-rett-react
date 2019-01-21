@@ -10,7 +10,8 @@ const SideNavWrapper = ({
   isModalOpen,
   showSideNav,
   hideSideNav,
-  openModal
+  openModal,
+  getRef
 }) =>
   <Fragment>
     {!isModalOpen && <FixedIcon isOpen={isOpen} isOpening={isOpening} type={'fas fa-bars'} largeIcon handleClick={showSideNav} />}
@@ -23,7 +24,7 @@ const SideNavWrapper = ({
         transitionLeaveTimeout={5000}
         transitionLeave={true}
       >
-        <SideNav openModal={openModal} hideSideNav={hideSideNav} isClosing={isClosing} />
+      <SideNav isOpen={isOpen} openModal={openModal} getRef={getRef} hideSideNav={hideSideNav} isClosing={isClosing} />
       </ReactCSSTransitionGroup>}
   </Fragment>;
 

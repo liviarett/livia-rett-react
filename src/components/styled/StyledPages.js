@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import style from '../../style';
+import style from '../../config/style';
 
 const StyledPage = styled.section`
   min-height: 100vh;

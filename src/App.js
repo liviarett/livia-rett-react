@@ -24,9 +24,22 @@ class App extends Component {
         content: '',
       }
     }
+    this.firstPage = React.createRef();
+    this.webDevPage = React.createRef();
+    this.designPage = React.createRef();
     this.showSideNav = showSideNav(this);
     this.hideSideNav = hideSideNav(this);
     this.toggleModal = toggleModal(this);
+    this.setRef = this.setRef.bind(this);
+    this.getRef = this.getRef.bind(this);
+  }
+
+  setRef(ref, component) {
+    this[component] = ref;
+  }
+
+  getRef(component) {
+    return this[component];
   }
 
   componentDidMount() {
@@ -50,7 +63,6 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <div className="App">
         <SideNavWrapper
@@ -59,8 +71,14 @@ class App extends Component {
           openModal={this.toggleModal}
           hideSideNav={this.hideSideNav}
           showSideNav={this.showSideNav}
+          getRef={this.getRef}
         />
-        <FirstPage openModal={this.toggleModal} />
+        <FirstPage
+          openModal={this.toggleModal}
+          nextPage={this.webDevPage}
+          setRef={this.setRef}
+          getRef={this.getRef}
+        />
         <BackgroundPage
         firstHalf={{
           background: 'underground',
@@ -70,7 +88,12 @@ class App extends Component {
           background: 'lady',
         }}
         />
-        <WebDevelopmentPage openModal={this.toggleModal} />
+        <WebDevelopmentPage
+          openModal={this.toggleModal}
+          setRef={this.setRef}
+          getRef={this.getRef}
+          nextPage={this.designPage}
+        />
         <BackgroundPage
         firstHalf={{
           background: 'lady',
@@ -80,7 +103,10 @@ class App extends Component {
           shadow: true,
         }}
         />
-        <DesignPage openModal={this.toggleModal} />
+        <DesignPage
+          openModal={this.toggleModal}
+          setRef={this.setRef}
+        />
         <Footer />
         <ModalPage {...this.state.modal} closeModal={this.toggleModal} />
       </div>

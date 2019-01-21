@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import style from '../../style';
+import style from '../../config/style';
 
 const StyledModalPage = styled.section`
   height: 100vh;
@@ -16,6 +16,7 @@ const StyledModalPage = styled.section`
     margin: 2em auto;
     text-align: center;
     padding: 1em;
+    box-shadow: ${style.shadows.light};
   }
 
   .close-modal {

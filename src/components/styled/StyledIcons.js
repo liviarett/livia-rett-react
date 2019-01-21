@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Icon from '../Icon';
-import style from '../../style';
+import style from '../../config/style';
 
 export const StyledIcon = styled(Icon)`
   cursor: ${props => props.hasFunctionality ? '25px' : 'inherit'};

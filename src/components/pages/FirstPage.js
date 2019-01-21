@@ -3,7 +3,7 @@ import { StyledIcon } from '../styled/StyledIcons';
 import { StyledFirstPage } from '../styled/StyledPages';
 import SocialMediaIcons from '../SocialMediaIcons';
 import SlideDownButton from '../SlideDownButton';
-import style from '../../style';
+import style from '../../config/style';
 
 const languages = ['react', 'js', 'html5', 'css3-alt', 'less', 'git', 'npm'];
 class FirstPage extends Component {
@@ -13,7 +13,6 @@ class FirstPage extends Component {
       hoveredElement: '',
       delayed: false,
     }
-
     this.toggleHover = this.toggleHover.bind(this);
   }
 
@@ -30,10 +29,11 @@ class FirstPage extends Component {
       hoveredElement: element,
     })
   }
+
   render() {
-    const { openModal } = this.props;
+    const { openModal, setRef, getRef } = this.props;
     return (
-      <StyledFirstPage backgroundImage="underground.jpg" >
+      <StyledFirstPage backgroundImage="underground.jpg" id="first-page" ref={ref => setRef(ref, 'firstPage')}>
         <div className="overlay">
           <div>
             <h1>LIVIA RETT</h1>
@@ -57,9 +57,7 @@ class FirstPage extends Component {
           <SocialMediaIcons openModal={openModal} />
           <div>
             <div className="find-out-more">FIND OUT MORE</div>
-            <SlideDownButton className={`${this.state.delayed ? 'animated ' : ''}infinite ${style.effects.slideDownIcon}`} handleClick={() => {
-              // SCROLL TO NEXT PAGE
-            }} />
+            <SlideDownButton className={`${this.state.delayed ? 'animated ' : ''}infinite ${style.effects.slideDownIcon}`} nextPage="webDevPage" getRef={getRef} />
           </div>
         </div>
       </StyledFirstPage>);
