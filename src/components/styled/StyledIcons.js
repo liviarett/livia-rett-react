@@ -42,10 +42,8 @@ export const StyledIcon = styled(Icon)`
 
 export const StyledSideNavToggle = styled(StyledIcon)`
   position: absolute;
-  left: -1.3em;
+  right: .5em;
   top: 10px;
-  opacity: ${props => props.isClosing ? 0 : 1};
-  transition: all .5s;
 `;
 
 export const FixedIcon = styled(StyledIcon)`

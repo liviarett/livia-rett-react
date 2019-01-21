@@ -32,7 +32,8 @@ export default {
   },
 
   effects: {
-    slideDownIcon: 'bounce',
+    slideDownIcon: 'pulse',
+    languagesIcon: 'flipInY',
   },
 
   shadows: {

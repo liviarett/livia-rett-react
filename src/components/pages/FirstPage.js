@@ -47,7 +47,7 @@ class FirstPage extends Component {
                 onMouseEnter={() => this.toggleHover(language)}
                 onMouseLeave={() => this.toggleHover('')}>
               <StyledIcon
-                className={`language-icon${this.state.hoveredElement === language ? ' animated flipInY hover' : ''}`}
+                className={`language-icon${this.state.hoveredElement === language ? ` animated ${style.effects.languagesIcon} hover` : ''}`}
                 languageItem
                 type={`fab fa-${language}`}
               />

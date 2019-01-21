@@ -34,6 +34,25 @@ export const StyledFirstPage = styled(StyledPage)`
   background-attachment: fixed;
   background-position: center;
 
+  a {
+
+    &:not(:last-of-type) {
+      margin-right: .9em;
+    }
+
+    > i {
+      transition: all .3s;
+
+      &:hover {
+        transform: scale(.85);
+      }
+    }
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
   .overlay {
     min-height: 100vh;
     height: 100%;
@@ -52,7 +71,7 @@ export const StyledFirstPage = styled(StyledPage)`
 
   i.language-icon {
     font-size: 55px;
-    text-shadow: 0 0 1px #bbb;
+    text-shadow: 0 0 2px #aaa;
   }
 
   .language-wrapper {
@@ -63,17 +82,12 @@ export const StyledFirstPage = styled(StyledPage)`
     }
   }
 
-  a {
-    &:not(:last-of-type) {
-      margin-right: .9em;
-    }
-  }
-
   .find-out-more {
     margin-bottom: 1.7em;
     font-size: 1.3em;
     font-weight: 600;
   }
+
 `;
 
 export const StyledBackgroundPage = styled.section`
