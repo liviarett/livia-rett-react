@@ -25,12 +25,12 @@ const mapSocialMediaUrls = [
 
 const SocialMediaIcons = ({ openModal }) => <div>
   {mapSocialMediaUrls.map(media =>
-    <a title={media.title} href={media.url} key={media.title} target="_blank">
+    <a title={media.title} href={media.url} key={media.title} rel="noopener noreferrer" target="_blank">
       <Icon type={media.type} />
     </a>)}
-  <a>
-    <Icon type={'far fa-file-alt'} handleClick={() => openModal('cv')} />
-  </a>
+    <a href="/" onClick={(e) => e.preventDefault()}>
+      <Icon type={'far fa-file-alt'} handleClick={() => openModal('cv')} />
+    </a>
 </div>;
 
 export default SocialMediaIcons;

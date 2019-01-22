@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import designProjects from '../../config/designProjects';
 import { StyledImageRow } from '../styled/StyledModalPage';
 
-const DesignPage = ({ content }) => {
+const DesignProjectPage = ({ content }) => {
   const project = designProjects.filter(project => project.path === content)[0];
   return (
     <Fragment>
@@ -12,7 +12,7 @@ const DesignPage = ({ content }) => {
         {project.images.map(rowOfImage => (
           <StyledImageRow numberOfImages={rowOfImage.length} className="image-row">
             {rowOfImage.map(image => (
-              <img src={`/images/${project.path}/${image}.jpg`} />
+              <img alt="" src={`/images/${project.path}/${image}.jpg`} />
             ))}
           </StyledImageRow>
         ))}
@@ -20,4 +20,4 @@ const DesignPage = ({ content }) => {
     </Fragment>
 )};
 
-export default DesignPage;
+export default DesignProjectPage;

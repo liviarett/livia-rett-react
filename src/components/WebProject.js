@@ -8,7 +8,7 @@ const WebProject = ({ miniUrl, url, description, title }) => (
     <iframe frameBorder="0" title={title} src={`${baseUrl}mini-projects/${miniUrl}`}>
     </iframe>
     <div>
-      <h2><a href={`${baseUrl}${url}`} target="_blank">{title}</a></h2>
+      <h2><a href={`${baseUrl}${url}`} rel="noopener noreferrer" target="_blank">{title}</a></h2>
       <p>{description}</p>
     </div>
   </StyledWebProject>

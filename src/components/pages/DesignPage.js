@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { StyledDesignPage } from '../styled/StyledPages';
 import DesignProject from '../DesignProject';
 

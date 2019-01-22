@@ -1,16 +1,16 @@
 import React from 'react';
 import StyledModalPage from './styled/StyledModalPage';
-import CvPage from './modalPages/CvPage';
-import DesignPage from './modalPages/DesignPage';
+import CvPage from './pages/CvPage';
+import DesignProjectPage from './pages/DesignProjectPage';
 import { StyledIcon } from './styled/StyledIcons';
 
 const mapOfContent = {
   cv: CvPage,
-  'faap-moda': DesignPage,
-  'os-caras': DesignPage,
-  photography: DesignPage,
-  illustration: DesignPage,
-  pattern: DesignPage,
+  'faap-moda': DesignProjectPage,
+  'os-caras': DesignProjectPage,
+  photography: DesignProjectPage,
+  illustration: DesignProjectPage,
+  pattern: DesignProjectPage,
 }
 
 const ModalPage = ({ content, closeModal, isOpen, }) => {
