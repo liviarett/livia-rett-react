@@ -1,7 +1,7 @@
 import React from 'react';
 import StyledWebProject from './styled/StyledWebProject';
 
-const baseUrl = 'https://liviarett.github.io/mini-projects/';
+const baseUrl = 'https://liviarett.github.io/';
 
 const WebProject = ({ miniUrl, url, description, title }) => (
   <StyledWebProject >
