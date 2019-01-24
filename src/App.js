@@ -6,6 +6,7 @@ import WebDevelopmentPage from './components/pages/WebDevelopmentPage';
 import DesignPage from './components/pages/DesignPage';
 import BackgroundPage from './components/pages/BackgroundPage';
 import Footer from './components/Footer';
+import UnderConstruction from './components/UnderConstruction';
 import {
   showSideNav,
   hideSideNav,
@@ -65,6 +66,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <UnderConstruction />
         <SideNavWrapper
           {...this.state.sideNav}
           isModalOpen={this.state.modal.isOpen}
