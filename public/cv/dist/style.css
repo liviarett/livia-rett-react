@@ -14,7 +14,7 @@ body {
   overflow: hidden;
 }
 p {
-  line-height: 1.5;
+  line-height: 1.7;
 }
 a {
   text-decoration: none;
@@ -35,21 +35,21 @@ h2 {
   color: #1B4965;
 }
 section {
-  margin-bottom: 0.8em;
+  margin-bottom: 1.8em;
 }
 section h2 {
-  margin-bottom: 0.4em;
+  margin-bottom: 0.8em;
   position: relative;
   border-bottom: 1px solid #1B4965;
   padding-bottom: 3px;
 }
 header {
   display: flex;
-  margin-bottom: 0.8em;
+  margin-bottom: 1.2em;
 }
 header h1 {
   font-weight: 600;
-  max-width: 20.5%;
+  max-width: 21.5%;
   text-align: justify;
   color: #1B4965;
   margin-right: 2em;
@@ -109,6 +109,9 @@ header .header-info .header-icon i {
 .item p,
 .item .sub-title {
   padding-left: 0.5em;
+}
+.item .sub-title {
+  margin-top: 0.8em;
 }
 .languages {
   margin-bottom: 0;
